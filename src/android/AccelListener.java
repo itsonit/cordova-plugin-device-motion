@@ -149,7 +149,7 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
         this.setStatus(AccelListener.STARTING);
 
         // Get accelerometer from sensor manager
-        List<Sensor> list = this.sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
+        List<Sensor> list = this.sensorManager.getSensorList(Sensor.TYPE_LINEAR_ACCELERATION);
 
         // If found, then register as listener
         if ((list != null) && (list.size() > 0)) {
@@ -221,7 +221,7 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
      */
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Only look at accelerometer events
-        if (sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
+        if (sensor.getType() != Sensor.TYPE_LINEAR_ACCELERATION) {
             return;
         }
 
@@ -239,7 +239,7 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
      */
     public void onSensorChanged(SensorEvent event) {
         // Only look at accelerometer events
-        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
+        if (event.sensor.getType() != Sensor.TYPE_LINEAR_ACCELERATION) {
             return;
         }
 
